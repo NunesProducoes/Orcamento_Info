@@ -1,106 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário AVSTECH</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0d253f, #1c92d2);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .form-container {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      width: 400px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-    }
-    h2 { margin-bottom: 20px; font-size: 22px; color: #fff; }
-    label { display: block; margin-bottom: 8px; text-align: left; font-weight: bold; }
-    input, select {
-      width: 100%; padding: 10px; margin-bottom: 15px;
-      border-radius: 8px; border: none; outline: none; font-size: 14px;
-      background: #f0f0f0;
-    }
-    .info { font-size: 13px; color: #ffd700; margin-bottom: 8px; text-align: left; }
-    button {
-      width: 100%; padding: 12px; border: none; border-radius: 8px;
-      background: #1c92d2; color: #fff; font-size: 16px; font-weight: bold;
-      cursor: pointer; transition: background 0.3s ease;
-    }
-    button:hover { background: #0d71b8; }
-    .footer { margin-top: 15px; font-size: 12px; opacity: 0.8; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário AVSTECH</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0d253f, #1c92d2);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .form-container {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    width: 400px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+  h2 { margin-bottom: 20px; font-size: 22px; color: #fff; }
+  label { display: block; margin-bottom: 8px; text-align: left; font-weight: bold; }
+  input, select { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: none; outline: none; font-size: 14px; background: #f0f0f0; }
+  .info { font-size: 13px; color: #ffd700; margin-bottom: 8px; text-align: left; }
+  button {
+    width: 100%; padding: 12px; border: none; border-radius: 8px;
+    background: #1c92d2; color: #fff; font-size: 16px; font-weight: bold;
+    cursor: pointer; transition: background 0.3s ease;
+  }
+  button:hover { background: #0d71b8; }
+  .footer { margin-top: 15px; font-size: 12px; opacity: 0.8; }
+</style>
 </head>
 <body>
-  <div class="form-container">
-    <h2>Assistência Técnica AVSTECH</h2>
-    <form id="avstechForm">
-      <label for="nome">Nome do Cliente:</label>
-      <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+<div class="form-container">
+  <h2>Assistência Técnica AVSTECH</h2>
+  <form id="avstechForm">
+    <label for="nome">Nome do Cliente:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
-      <label for="equipamento">Tipo do Equipamento:</label>
-      <select id="equipamento" name="equipamento" required>
-        <option value="">Selecione...</option>
-        <option value="Notebook">Notebook</option>
-        <option value="PC">PC</option>
-        <option value="Tablet">Tablet</option>
-        <option value="Outros">Outros</option>
-      </select>
+    <label for="equipamento">Tipo do Equipamento:</label>
+    <select id="equipamento" name="equipamento" required>
+      <option value="">Selecione...</option>
+      <option value="Notebook">Notebook</option>
+      <option value="PC">PC</option>
+      <option value="Tablet">Tablet</option>
+      <option value="Outros">Outros</option>
+    </select>
 
-      <label for="servico">Tipo de Serviço Desejado:</label>
-      <select id="servico" name="servico" multiple required>
-        <option value="Troca de Tela">Troca de Tela</option>
-        <option value="Manutenção Corretiva/Preventiva">Manutenção Corretiva/Preventiva</option>
-        <option value="Instalação de SSD">Instalação de SSD</option>
-        <option value="Formatação">Formatação</option>
-        <option value="Reparo em Motherboard">Reparo em Motherboard</option>
-        <option value="Outros">Outros</option>
-      </select>
+    <label for="servico">Tipo de Serviço Desejado:</label>
+    <select id="servico" name="servico" multiple required>
+      <option value="Manutenção Preventiva/Corretiva">Manutenção Preventiva/Corretiva</option>
+      <option value="Instalação de SSD">Instalação de SSD</option>
+      <option value="Formatação e instalação de sistema">Formatação e instalação de sistema</option>
+      <option value="Substituição de Tela">Substituição de Tela</option>
+      <option value="Substituição de teclado">Substituição de teclado</option>
+      <option value="Outro Serviço">Outro Serviço</option>
+    </select>
 
-      <div class="info">⚠️ Orçamentos para serviços são a partir de <b>R$180,00</b>.</div>
-      <label for="valor">Resposta (Valor do Serviço):</label>
-      <input type="text" id="valor" name="valor" placeholder="Ex: R$ 180,00" required>
+    <!-- Campo de texto que aparece somente se "Outro Serviço" estiver selecionado -->
+    <input type="text" id="outroServico" name="outroServico" placeholder="Especifique outro serviço" style="display:none;">
 
-      <button type="submit">Enviar pelo WhatsApp</button>
-    </form>
-    <div class="footer">
-      © 2025 AVSTECH - Assistência Técnica
-    </div>
+    <div class="info">⚠️ Orçamentos para serviços são a partir de <b>R$180,00</b>.</div>
+
+    <label for="valor">Resposta (Valor do Serviço):</label>
+    <input type="text" id="valor" name="valor" placeholder="Ex: R$ 180,00" required>
+
+    <button type="submit">Enviar pelo WhatsApp</button>
+  </form>
+  <div class="footer">
+    © 2025 AVSTECH - Assistência Técnica
   </div>
+</div>
 
-  <script>
-    document.getElementById("avstechForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      let nome = document.getElementById("nome").value;
-      let equipamento = document.getElementById("equipamento").value;
-      let servicoOptions = document.getElementById("servico").selectedOptions;
-      let servico = Array.from(servicoOptions).map(option => option.value).join(", ");
-      let valor = document.getElementById("valor").value;
-      let telefone = "5571981895439"; // WhatsApp correto
-      let agora = new Date();
-      let dataFormatada = agora.toLocaleDateString("pt-BR");
-      let horaFormatada = agora.toLocaleTimeString("pt-BR");
-      let mensagem = `👋 Olá, seja bem-vindo(a) à *AVSTECH - Assistência Técnica*!%0A` +
-                     `Estamos prontos para ajudar você.%0A%0A` +
-                     `📅 Data: *${dataFormatada}*%0A` +
-                     `⏰ Hora: *${horaFormatada}*%0A%0A` +
-                     `👤 Nome: *${nome}*%0A` +
-                     `💻 Equipamento: *${equipamento}*%0A` +
-                     `🛠️ Serviço desejado: *${servico}*%0A` +
-                     `💲 Valor do serviço: *${valor}* (mínimo R$180,00)`;
-      let url = `https://wa.me/${telefone}?text=${mensagem}`;
-      window.open(url, "_blank");
-    });
-  </script>
+<script>
+  const servicoSelect = document.getElementById("servico");
+  const outroServicoInput = document.getElementById("outroServico");
+
+  // Mostrar campo "Outro Serviço" se selecionado
+  servicoSelect.addEventListener("change", () => {
+    const selecionados = Array.from(servicoSelect.selectedOptions).map(o => o.value);
+    outroServicoInput.style.display = selecionados.includes("Outro Serviço") ? "block" : "none";
+  });
+
+  // Envio do formulário para WhatsApp
+  document.getElementById("avstechForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let nome = document.getElementById("nome").value;
+    let equipamento = document.getElementById("equipamento").value;
+    let servicoOptions = Array.from(servicoSelect.selectedOptions).map(o => o.value);
+
+    // Se "Outro Serviço" selecionado, incluir valor do input
+    if (servicoOptions.includes("Outro Serviço") && outroServicoInput.value.trim() !== "") {
+      const index = servicoOptions.indexOf("Outro Serviço");
+      servicoOptions[index] = "Outro Serviço: " + outroServicoInput.value.trim();
+    }
+
+    let servico = servicoOptions.join(", ");
+    let valor = document.getElementById("valor").value;
+    let telefone = "5571981895439";
+    let agora = new Date();
+    let dataFormatada = agora.toLocaleDateString("pt-BR");
+    let horaFormatada = agora.toLocaleTimeString("pt-BR");
+
+    let mensagem = `👋 Olá, seja bem-vindo(a) à *AVSTECH - Assistência Técnica*!%0A` +
+                   `Estamos prontos para ajudar você.%0A%0A` +
+                   `📅 Data: *${dataFormatada}*%0A` +
+                   `⏰ Hora: *${horaFormatada}*%0A%0A` +
+                   `👤 Nome: *${nome}*%0A` +
+                   `💻 Equipamento: *${equipamento}*%0A` +
+                   `🛠️ Serviço desejado: *${servico}*%0A` +
+                   `💲 Valor do serviço: *${valor}* (mínimo R$180,00)`;
+
+    let url = `https://wa.me/${telefone}?text=${mensagem}`;
+    window.open(url, "_blank");
+  });
+</script>
 </body>
 </html>
