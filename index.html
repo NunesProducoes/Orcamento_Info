@@ -71,12 +71,14 @@
     <div class="info">⚠️ Orçamentos para serviços são a partir de <b>R$140,00</b>.</div>
 
     <label for="valor">Resposta (Valor do Serviço):</label>
-    <let valor = document.getElementById("valor").value || "Não informado";>
-    <input type="text" id="valor" name="valor" placeholder="Ex: R$ " required>
+    <input type="text" id="valor" name="valor" placeholder="Ex: R$ ">
 
-    <button type="submit">Enviar pelo WhatsApp</button>
-  </form>
-  <div class="footer">
+    <script>
+      let valor = document.getElementById("valor").value || "Não informado";
+    </script>
+      <button type="submit">Enviar pelo WhatsApp</button>
+    </form>
+    <div class="footer">
     © 2025 AVSTECH - Assistência Técnica
   </div>
 </div>
