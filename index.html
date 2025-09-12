@@ -54,9 +54,9 @@
     </select>
 
     <label for="servico">Tipo de Serviço Desejado:</label>
-      <select id="servico" name="servico" required>    
+    <select id="servico" name="servico" required>    
       <option value="">Selecione...</option>
-          <option value="Manutenção Preventiva/Corretiva">Manutenção Preventiva/Corretiva</option>
+      <option value="Manutenção Preventiva/Corretiva">Manutenção Preventiva/Corretiva</option>
       <option value="Instalação de SSD">Instalação de SSD</option>
       <option value="Formatação e instalação de sistema">Formatação e Instalação de Sistema</option>
       <option value="Substituição de Tela">Substituição de Tela</option>
@@ -65,7 +65,6 @@
       <option value="Outro Serviço">Outro Serviço</option>
     </select>
 
-    <!-- Campo de texto que aparece somente se "Outro Serviço" estiver selecionado -->
     <input type="text" id="outroServico" name="outroServico" placeholder="Especifique outro serviço" style="display:none;">
 
     <div class="info">⚠️ Orçamentos para serviços são a partir de <b>R$140,00</b>.</div>
@@ -73,56 +72,40 @@
     <label for="valor">Resposta (Valor do Serviço):</label>
     <input type="text" id="valor" name="valor" placeholder="Ex: R$ ">
 
-    <script>
-      let valor = document.getElementById("valor").value || "Não informado";
-    </script>
-      <button type="submit">Enviar pelo WhatsApp</button>
-    </form>
-    <div class="footer">
+    <button type="submit">Enviar pelo WhatsApp</button>
+  </form>
+  <div class="footer">
     © 2025 AVSTECH - Assistência Técnica
   </div>
 </div>
 
 <script>
-  const servicoSelect = document.getElementById("servico");
-  const outroServicoInput = document.getElementById("outroServico");
-
-  // Mostrar campo "Outro Serviço" se selecionado
-  servicoSelect.addEventListener("change", () => {
-    const selecionados = Array.from(servicoSelect.selectedOptions).map(o => o.value);
-    outroServicoInput.style.display = selecionados.includes("Outro Serviço") ? "block" : "none";
+  document.getElementById("servico").addEventListener("change", function() {
+    document.getElementById("outroServico").style.display = this.value === "Outro Serviço" ? "block" : "none";
   });
 
-  // Envio do formulário para WhatsApp
   document.getElementById("avstechForm").addEventListener("submit", function(e) {
     e.preventDefault();
+
     let nome = document.getElementById("nome").value;
     let equipamento = document.getElementById("equipamento").value;
-    let servicoOptions = Array.from(servicoSelect.selectedOptions).map(o => o.value);
+    let servico = document.getElementById("servico").value;
+    let outroServico = document.getElementById("outroServico").value;
+    let valor = document.getElementById("valor").value || "Não informado";
 
-    // Se "Outro Serviço" selecionado, incluir valor do input
-    if (servicoOptions.includes("Outro Serviço") && outroServicoInput.value.trim() !== "") {
-      const index = servicoOptions.indexOf("Outro Serviço");
-      servicoOptions[index] = "Outro Serviço: " + outroServicoInput.value.trim();
+    if (servico === "Outro Serviço" && outroServico) {
+      servico = outroServico;
     }
 
-    let servico = servicoOptions.join(", ");
-    let valor = document.getElementById("valor").value;
-    let telefone = "5571981895439"; // WhatsApp correto
-    let agora = new Date();
-    let dataFormatada = agora.toLocaleDateString("pt-BR");
-    let horaFormatada = agora.toLocaleTimeString("pt-BR");
+    let mensagem = `📋 *Orçamento AVSTECH* %0A
+👤 Cliente: ${nome} %0A
+💻 Equipamento: ${equipamento} %0A
+🔧 Serviço: ${servico} %0A
+💲 Valor do Serviço: ${valor}`;
 
-    let mensagem = `👋 Olá, seja bem-vindo(a) à *AVSTECH - Assistência Técnica*!%0A` +
-                   `Estamos prontos para ajudar você.%0A%0A` +
-                   `📅 Data: *${dataFormatada}*%0A` +
-                   `⏰ Hora: *${horaFormatada}*%0A%0A` +
-                   `👤 Nome: *${nome}*%0A` +
-                   `💻 Equipamento: *${equipamento}*%0A` +
-                   `🛠️ Serviço desejado: *${servico}*%0A` +
-                   `💲 Valor do serviço: *${valor}* (mínimo R$180,00)`;
+    let numero = "5571981895439"; // Substitua pelo seu número com DDI + DDD
+    let url = `https://wa.me/${numero}?text=${mensagem}`;
 
-    let url = `https://wa.me/${telefone}?text=${mensagem}`;
     window.open(url, "_blank");
   });
 </script>
