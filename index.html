@@ -3,54 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orçamento Musical</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Formulário AVSTECH</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0d253f, #1c92d2);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .form-container {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    width: 400px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+  h2 { margin-bottom: 20px; font-size: 22px; color: #fff; }
+  label { display: block; margin-bottom: 8px; text-align: left; font-weight: bold; }
+  input, select { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: none; outline: none; font-size: 14px; background: #f0f0f0; }
+  .info { font-size: 13px; color: #ffd700; margin-bottom: 8px; text-align: left; }
+  button {
+    width: 100%; padding: 12px; border: none; border-radius: 8px;
+    background: #1c92d2; color: #fff; font-size: 16px; font-weight: bold;
+    cursor: pointer; transition: background 0.3s ease;
+  }
+  button:hover { background: #0d71b8; }
+  .footer { margin-top: 15px; font-size: 12px; opacity: 0.8; }
+</style>
 </head>
-<body class="bg-gray-100 p-6">
-  <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-bold mb-6 text-center">Orçamento Musical</h2>
+<body>
+<div class="form-container">
+  <h2>Assistência Técnica AVSTECH</h2>
+  <form id="avstechForm">
+    <label for="nome">Nome do Cliente:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" required pattern="\(\d{2}\)\s\d{5}-\d{4}">
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço completo" required>
+  </form>
+</div>
 
-    <form id="formOrcamento" class="space-y-4">
-      <input type="text" name="nome" placeholder="Nome" required class="w-full p-2 border rounded">
-      <input type="text" name="celular" placeholder="Celular" class="w-full p-2 border rounded">
-      <input type="text" name="whatsapp" placeholder="WhatsApp" class="w-full p-2 border rounded">
-      <input type="email" name="email" placeholder="Email" class="w-full p-2 border rounded">
-
-      <label for="data_do_evento">Data do Evento</label>
-      <input type="date" id="data_do_evento" name="data_do_evento" class="w-full p-2 border rounded">
-
-      <label for="hora_do_evento">Hora do Evento</label>
-      <input type="time" id="hora_do_evento" name="hora_do_evento" class="w-full p-2 border rounded">
-
-      <input type="text" name="local" placeholder="Local do evento" class="w-full p-2 border rounded">
-      <input type="text" name="endereco" placeholder="Endereço" class="w-full p-2 border rounded">
-
-      <div>
-        <label class="font-semibold">Formação Musical:</label><br>
-        <div class="flex flex-wrap gap-2 mt-1">
-          <label><input type="checkbox" name="formacao" value="DUO"> DUO</label>
-          <label><input type="checkbox" name="formacao" value="TRIO"> TRIO</label>
-          <label><input type="checkbox" name="formacao" value="QUARTETO"> QUARTETO</label>
-          <label><input type="checkbox" name="formacao" value="BANDA"> BANDA</label>
-          <label><input type="checkbox" name="formacao" value="OUTRO"> OUTRO</label>
-        </div>
-      </div>
-
-      <div>
-        <label class="font-semibold">Estilos Musicais:</label><br>
-        <div class="flex flex-wrap gap-2 mt-1">
-          <label><input type="checkbox" name="estilos" value="SAMBA"> SAMBA</label>
-          <label><input type="checkbox" name="estilos" value="FORRÓ"> FORRÓ</label>
-          <label><input type="checkbox" name="estilos" value="MPB"> MPB</label>
-          <label><input type="checkbox" name="estilos" value="BOSSA"> BOSSA</label>
-          <label><input type="checkbox" name="estilos" value="DISCO"> DISCO</label>
-          <label><input type="checkbox" name="estilos" value="ELETRÔNICA"> ELETRÔNICA</label>
-          <label><input type="checkbox" name="estilos" value="ROCK"> ROCK</label>
-          <label><input type="checkbox" name="estilos" value="GOSPEL"> GOSPEL</label>
-          <label><input type="checkbox" name="estilos" value="OUTRO"> OUTRO</label>
-        </div>
-      </div>
-
-      <div>
-        <label class="font-semibold">Serviços Extras:</label><br>
-        <div class="flex flex
+    <label for="equipamento">Tipo do Equipamento:</label>
+    <select id="equipamento" name="equipamento" required>
+@@ -62,6 +68,7 @@
+      <option value="Substituição de Tela">Substituição de Tela</option>
+      <option value="Substituição de teclado">Substituição de teclado</option>
+      <option value="Suporte à Rede/Acesso Remoto">Suporte à Rede/Acesso Remoto</option>
+      <option value="Visita Técnica">Visita Técnica</option>
+      <option value="Outro Serviço">Outro Serviço</option>
+    </select>
