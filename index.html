@@ -1,61 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulário AVSTECH</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0d253f, #1c92d2);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  .form-container {
-    background: rgba(255,255,255,0.1);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    width: 400px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-  }
-  h2 { margin-bottom: 20px; font-size: 22px; color: #fff; }
-  label { display: block; margin-bottom: 8px; text-align: left; font-weight: bold; }
-  input, select { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: none; outline: none; font-size: 14px; background: #f0f0f0; }
-  .info { font-size: 13px; color: #ffd700; margin-bottom: 8px; text-align: left; }
-  button {
-    width: 100%; padding: 12px; border: none; border-radius: 8px;
-    background: #1c92d2; color: #fff; font-size: 16px; font-weight: bold;
-    cursor: pointer; transition: background 0.3s ease;
-  }
-  button:hover { background: #0d71b8; }
-  .footer { margin-top: 15px; font-size: 12px; opacity: 0.8; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário AVSTECH</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0d253f, #1c92d2);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      width: 400px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    h2 { margin-bottom: 20px; font-size: 22px; color: #fff; }
+    label { display: block; margin-bottom: 8px; text-align: left; font-weight: bold; }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      background: #f0f0f0;
+    }
+    .info { font-size: 13px; color: #ffd700; margin-bottom: 8px; text-align: left; }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #1c92d2;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover { background: #0d71b8; }
+    .footer { margin-top: 15px; font-size: 12px; opacity: 0.8; }
+  </style>
 </head>
 <body>
-<div class="form-container">
-  <h2>Assistência Técnica AVSTECH</h2>
-  <form id="avstechForm">
-    <label for="nome">Nome do Cliente:</label>
-    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-    <label for="telefone">Telefone:</label>
-    <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" required pattern="\(\d{2}\)\s\d{5}-\d{4}">
-    <label for="endereco">Endereço:</label>
-    <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço completo" required>
-  </form>
-</div>
+  <div class="form-container">
+    <h2>Assistência Técnica AVSTECH</h2>
+    <form id="avstechForm">
+      <label for="nome">Nome do Cliente:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
-    <label for="equipamento">Tipo do Equipamento:</label>
-    <select id="equipamento" name="equipamento" required>
-@@ -62,6 +68,7 @@
-      <option value="Substituição de Tela">Substituição de Tela</option>
-      <option value="Substituição de teclado">Substituição de teclado</option>
-      <option value="Suporte à Rede/Acesso Remoto">Suporte à Rede/Acesso Remoto</option>
-      <option value="Visita Técnica">Visita Técnica</option>
-      <option value="Outro Serviço">Outro Serviço</option>
-    </select>
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" 
+             required pattern="\(\d{2}\)\s\d{5}-\d{4}">
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço completo" required>
+
+      <label for="equipamento">Tipo do Equipamento:</label>
+      <select id="equipamento" name="equipamento" required>
+        <option value="">Selecione...</option>
+        <option value="Computador">Computador</option>
+        <option value="Notebook">Notebook</option>
+        <option val
