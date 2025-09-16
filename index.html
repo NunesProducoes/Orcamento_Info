@@ -43,6 +43,12 @@
   <form id="avstechForm">
     <label for="nome">Nome do Cliente:</label>
     <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" required pattern="\(\d{2}\)\s\d{5}-\d{4}">
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço completo" required>
+  </form>
+</div>
 
     <label for="equipamento">Tipo do Equipamento:</label>
     <select id="equipamento" name="equipamento" required>
@@ -62,6 +68,7 @@
       <option value="Substituição de Tela">Substituição de Tela</option>
       <option value="Substituição de teclado">Substituição de teclado</option>
       <option value="Suporte à Rede/Acesso Remoto">Suporte à Rede/Acesso Remoto</option>
+      <option value="Visita Técnica">Visita Técnica</option>
       <option value="Outro Serviço">Outro Serviço</option>
     </select>
 
