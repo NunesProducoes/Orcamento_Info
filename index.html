@@ -19,7 +19,7 @@
       background: rgba(255, 255, 255, 0.1);
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
       width: 400px;
       text-align: center;
       backdrop-filter: blur(10px);
@@ -36,7 +36,13 @@
       font-size: 14px;
       background: #f0f0f0;
     }
-    .info { font-size: 13px; color: #ffd700; margin-bottom: 8px; text-align: left; }
+    .info { 
+      font-size: 13px; 
+      color: #ffd700; 
+      margin-bottom: 12px; 
+      text-align: center; 
+      font-weight: bold;
+    }
     button {
       width: 100%;
       padding: 12px;
@@ -91,9 +97,38 @@
         <option value="Outro Serviço">Outro Serviço</option>
       </select>
 
+      <!-- Aviso de valor mínimo -->
+      <div class="info">⚠️ Valores dos serviços a partir de R$ 140,00</div>
+
       <button type="submit">Enviar Solicitação</button>
     </form>
     <div class="footer">© 2025 AVSTECH</div>
   </div>
+
+  <script>
+    document.getElementById("avstechForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Impede envio padrão
+
+      const nome = document.getElementById("nome").value;
+      const telefone = document.getElementById("telefone").value;
+      const endereco = document.getElementById("endereco").value;
+      const equipamento = document.getElementById("equipamento").value;
+      const servico = document.getElementById("servico").value;
+
+      // Substitua pelo número da empresa (formato DDI+DDD+Número, ex: 5591999999999)
+      const numeroWhatsApp = "5591999999999";
+
+      const mensagem = `Olá, meu nome é *${nome}*.
+📞 Telefone: ${telefone}
+🏠 Endereço: ${endereco}
+💻 Equipamento: ${equipamento}
+🔧 Serviço: ${servico}
+
+Gostaria de solicitar um orçamento.`;
+
+      const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, "_blank");
+    });
+  </script>
 </body>
 </html>
