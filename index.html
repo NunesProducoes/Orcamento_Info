@@ -35,6 +35,7 @@
       outline: none;
       font-size: 14px;
       background: #f0f0f0;
+      color: #000;
     }
     .info { 
       font-size: 13px; 
@@ -66,12 +67,8 @@
       <label for="nome">Nome do Cliente:</label>
       <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
       
-      <<label for="telefone">Telefone:</label>
-      <input type="text" 
-      id="telefone" 
-      name="telefone" 
-      placeholder="Digite seu telefone" 
-      required>
+      <label for="telefone">Telefone:</label>
+      <input type="text" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
 
       <label for="endereco">Endereço:</label>
       <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço completo" required>
@@ -112,13 +109,18 @@
     document.getElementById("avstechForm").addEventListener("submit", function(e) {
       e.preventDefault(); // Impede envio padrão
 
-      const nome = document.getElementById("nome").value;
-      const telefone = document.getElementById("telefone").value;
-      const endereco = document.getElementById("endereco").value;
+      const nome = document.getElementById("nome").value.trim();
+      const telefone = document.getElementById("telefone").value.trim();
+      const endereco = document.getElementById("endereco").value.trim();
       const equipamento = document.getElementById("equipamento").value;
       const servico = document.getElementById("servico").value;
 
-      // Substitua pelo número da empresa (formato DDI+DDD+Número, ex: 5571981895439)
+      if(!nome || !telefone || !endereco || !equipamento || !servico) {
+        alert("Por favor, preencha todos os campos!");
+        return;
+      }
+
+      // Número da empresa em formato internacional (DDI+DDD+Número)
       const numeroWhatsApp = "5571981895439";
 
       const mensagem = `Olá, meu nome é *${nome}*.
@@ -129,6 +131,7 @@
 
 Gostaria de solicitar um orçamento?`;
 
+      // Codifica acentos e caracteres especiais
       const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
       window.open(url, "_blank");
     });
